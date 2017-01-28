@@ -1,0 +1,7 @@
+<%= form_for [@artist, @artist.songs.new] do |f| %>
+<tr>
+  <td><%= f.text_field :title %></td>
+  <td><%= f.number_field :year %></td>
+  <td><%= f.submit "Add song" %></td>
+</tr>
+<% end %>
