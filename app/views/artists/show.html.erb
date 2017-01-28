@@ -1,0 +1,25 @@
+<div class="container">
+  <h1><%= @artist.name %></h1>
+  <% @photos.each do |photo| %>
+    <%= image_tag photo.picture.medium, class: "artist" %>
+  <% end %>
+  <div><%= @artist.bio %></div>
+</div>
+<div class="container">
+  <% if !@songs.nil? %>
+  <table>
+    <thead>
+      <th>Title</th>
+      <th>Year released</th>
+    </thead>
+    <tbody>
+      <tr>
+        <% @songs.each do |song| %>
+        <td><%= song.title %></td>
+        <td><%= song.year %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>
