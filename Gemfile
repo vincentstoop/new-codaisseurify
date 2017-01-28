@@ -54,3 +54,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave', '0.11.2'
 gem 'cloudinary', '1.2.3'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+end
+
+group :test do
+  gem 'capybara', '~> 2.9', '>= 2.9.1'
+end
