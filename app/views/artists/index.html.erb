@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Artist in the Database</h1>
+
+  <% if !@artists.nil? %>
+  <ul>
+    <% @artists.each do |artist| %>
+      <li>
+        <%= link_to artist.name, artist_path(artist) %>
+      </li>
+    <% end %>
+  <% end %>
+  </ul>
+</div>
