@@ -1,4 +1,12 @@
-<%= form_for [@artist, @artist.songs.new] do |f| %>
+<% if !@song.nil? && @song.errors.any? %>
+  <ul>
+  <% @song.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [@artist, @song = @artist.songs.new] do |f| %>
 <tr>
   <td><%= f.text_field :title %></td>
   <td><%= f.number_field :year %></td>

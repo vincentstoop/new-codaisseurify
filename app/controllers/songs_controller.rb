@@ -2,11 +2,12 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @song.artist_id = params[:artist_id]
+    @artist = Artist.find(@song.artist_id)
 
     if @song.save
       redirect_to @song.artist, notice: "Song added."
     else
-      redirect_to @song.artist, notice: "Song could not be added. Try again."
+      render 'artists/show', id: @artist.id#, errors: @song.errors
     end
   end
 
@@ -16,6 +17,7 @@ class SongsController < ApplicationController
     @song.destroy
 
     redirect_to artist_path(params[:artist_id]), notice: "Song deleted"
+    # render 'artists/show', id: params[:artist_id]
   end
 
   private
