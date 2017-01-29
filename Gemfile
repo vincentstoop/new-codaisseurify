@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # gem 'capybara', '>= 2.3.0', '< 2.13.0'
+  gem 'selenium-webdriver', '~> 2.53'
 end
 
 group :development do
@@ -55,12 +57,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave', '0.11.2'
 gem 'cloudinary', '1.2.3'
 
+group :test do
+  gem 'capybara', '~> 2.9', '>= 2.9.1'
+  gem 'database_cleaner'
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'factory_girl_rails', '4.7.0'
   gem 'faker', '1.6.6'
-end
-
-group :test do
-  gem 'capybara', '~> 2.9', '>= 2.9.1'
+  # gem 'capybara-webkit'
 end
