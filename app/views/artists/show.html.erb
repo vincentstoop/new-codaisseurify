@@ -1,5 +1,8 @@
 <div class="container">
   <h1><%= @artist.name %></h1>
+  <%= link_to "Delete #{@artist.name}", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to "Delete alls songs by #{@artist.name}", delete_songs_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
+
   <% @artist.photos.each do |photo| %>
     <%= image_tag photo.picture.medium, class: "artist" %>
   <% end %>
