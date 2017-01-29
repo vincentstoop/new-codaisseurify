@@ -2,10 +2,10 @@
   <h1>Artists in the Database</h1>
 
   <% if !@artists.nil? %>
-  <p class="col-md-12">Sort by:
+  <p>Sort by:
   <%= link_to "Name", root_path(sort: @next_sort_name) %>
   <%= link_to "Creation date", root_path(sort: @next_sort_created_at) %></p>
-  <ul>
+  <ul class="artists">
     <% @artists.each do |artist| %>
       <li>
         <%= link_to artist_path(artist) do %>

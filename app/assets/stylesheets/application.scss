@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+@import "normalize";
+@import "artists";
+@import "songs";
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 24px;
+}
