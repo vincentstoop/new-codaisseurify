@@ -93,7 +93,7 @@ describe Artist do
     end
 
     it "can have 0 photos" do
-      artist = create(:artist, id: 333, name: "No Photos", photos: [])
+      artist = create(:artist, id: 123, name: "No Photos", photos: [])
       artist.valid?
       expect(artist.errors).not_to have_key(:photos)
     end
