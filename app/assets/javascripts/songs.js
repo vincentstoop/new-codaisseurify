@@ -20,7 +20,7 @@ function deleteAllSongs() {
 
 function deleteSong() {
     // this.preventDefault();
-    var songId = $(this).parent().data('song');
+    var songId = $(this).parent().parent().data('song');
     $.ajax({
       url: '/artists/' + $('h1').data('artist') + '/songs/' + songId + ".json",
       type: 'DELETE',
