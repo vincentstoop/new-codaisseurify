@@ -15,10 +15,10 @@
       <th>Year released</th>
     </thead>
     <tbody>
+      <%= render 'songs/form', song: @song %>
       <% if !@songs.nil? %>
       <%= render @songs %>
       <% end %>
-      <%= render 'songs/form', song: @song %>
     </tbody>
   </table>
 </div>

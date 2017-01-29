@@ -1,5 +1,7 @@
 $(document).ready(function() {
-  $('.destroy').bind('click', deleteSong)
+  $('.destroy').bind('click', deleteSong);
+  $("form").bind('submit', submitSong);
+  // $('.submit_song').bind('click', submitSong);
 });
 
 function deleteSong() {
@@ -16,4 +18,47 @@ function deleteSong() {
         $('tr[data-song="' + songId + '"]').remove();
         data.message;
     });
+}
+
+function submitSong(event) {
+  event.preventDefault();
+  createSong($("#input_title").val(), $("#input_year").val());
+  $("#input_title").val(null);
+  $("#input_year").val(null);
+}
+
+function createSong(title, year) {
+  var newSong = { title: title, year: year };
+
+  $.ajax({
+    type: "POST",
+    url: "/artists/" + $('h1').data('artist') + "/songs.json",
+    data: JSON.stringify({
+        song: newSong
+    }),
+    contentType: "application/json",
+    dataType: "json"
+  })
+  .done(function() {
+    var titleCol = $('<td></td>')
+      .html(title);
+
+    var yearCol = $('<td></td>')
+      .html(year);
+
+    var deleteText = $('<td></td>')
+      .attr('class', 'destroy')
+      .html('"Delete song"');
+
+    var tableRow = $('<tr data-song="567"></tr>')
+      .append(titleCol)
+      .append(yearCol)
+      .append(deleteText);
+
+    $("#songList").append( tableRow );
+  })
+  .fail(function(error) {
+    console.log(error);
+  });;
+
 }
