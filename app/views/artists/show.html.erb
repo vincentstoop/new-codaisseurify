@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= @artist.name %></h1>
+  <h1 data-artist="<%= @artist.id %>"><%= @artist.name %></h1>
   <%= link_to "Delete #{@artist.name}", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
   <%= link_to "Delete alls songs by #{@artist.name}", delete_songs_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
 
@@ -9,20 +9,16 @@
   <div><%= @artist.bio %></div>
 </div>
 <div class="container">
-  <table>
+  <table id="songList">
     <thead>
       <th>Title</th>
       <th>Year released</th>
     </thead>
     <tbody>
-      <% @artist.songs.each do |song| %>
-      <tr>
-        <td><%= song.title %></td>
-        <td><%= song.year %></td>
-        <td><%= link_to "Delete song", artist_song_path(song.artist_id, song.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
-      </tr>
+      <% if !@songs.nil? %>
+      <%= render @songs %>
       <% end %>
-      <%= render 'songs/form' %>
+      <%= render 'songs/form', song: @song %>
     </tbody>
   </table>
 </div>

@@ -8,6 +8,8 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
     @photos = @artist.photos.all
     @songs = @artist.songs.all
+    @song = @artist.songs.new
+    # render status: 200, json: @artist.as_json(include: [:songs, :photos])
   end
 
   def destroy
@@ -22,6 +24,9 @@ class ArtistsController < ApplicationController
     @artist.songs.each do |song|
       song.destroy
     end
-    redirect_to artist_path, notice: "All songs by #{@artist.name} deleted."
+    # redirect_to artist_path, notice: "All songs by #{@artist.name} deleted."
+    render status: 200, json: {
+      message: "All songs by #{@artist.name} deleted."
+    }
   end
 end

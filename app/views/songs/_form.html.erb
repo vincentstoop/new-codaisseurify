@@ -1,15 +1,15 @@
-<% if !@song.nil? && @song.errors.any? %>
+<% if !song.nil? && song.errors.any? %>
   <ul>
-  <% @song.errors.full_messages.each do |error| %>
+  <% song.errors.full_messages.each do |error| %>
     <li><%= error %></li>
   <% end %>
   </ul>
 <% end %>
 
-<%= form_for [@artist, @song = @artist.songs.new] do |f| %>
+<%= form_for [@artist, song] do |f| %>
 <tr>
-  <td><%= f.text_field :title %></td>
-  <td><%= f.number_field :year %></td>
+  <td><%= f.text_field :title, id: "input_title" %></td>
+  <td><%= f.number_field :year, id: "input_year" %></td>
   <td><%= f.submit "Add song" %></td>
 </tr>
 <% end %>
