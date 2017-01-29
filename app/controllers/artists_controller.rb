@@ -9,4 +9,19 @@ class ArtistsController < ApplicationController
     @photos = @artist.photos.all
     @songs = @artist.songs.all
   end
+
+  def destroy
+    @artist = Artist.find(params[:id])
+    @artist_name = @artist.name
+    @artist.destroy
+    redirect_to root_path, notice: "Artist #{@artist_name} deleted."
+  end
+
+  def delete_all_songs
+    @artist = Artist.find(params[:id])
+    @artist.songs.each do |song|
+      song.destroy
+    end
+    redirect_to artist_path, notice: "All songs by #{@artist.name} deleted."
+  end
 end
