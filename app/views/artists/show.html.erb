@@ -1,18 +1,24 @@
 <div class="container">
   <h1 data-artist="<%= @artist.id %>"><%= @artist.name %></h1>
-  <%= link_to "Delete #{@artist.name}", artist_path(@artist.id), id: "delete_artist", method: :delete, data: { confirm: "Are you sure?" } %>
-  <span id="delete_all_songs">Delete all songs by <%= "#{@artist.name}"%></span>
 
+<div class="artist">
+  <div class="artist-info">
   <% @artist.photos.each do |photo| %>
     <%= image_tag photo.picture.medium, class: "artist" %>
   <% end %>
-  <div><%= @artist.bio %></div>
+  <p><%= @artist.bio %></p>
+  </div>
+  <div>
+    <%= link_to "Back to index", root_path, class: "back-link" %>
+  <%= link_to "Delete #{@artist.name}", artist_path(@artist.id), id: "delete_artist", method: :delete, data: { confirm: "Are you sure?" } %>
+  <span id="delete_all_songs">Delete all songs by <%= "#{@artist.name}"%></span>
+  </div>
 </div>
 <div class="container">
   <table id="songList">
     <thead>
       <th>Title</th>
-      <th>Year released</th>
+      <th>Year</th>
     </thead>
     <tbody>
       <%= render 'songs/form', song: @song %>

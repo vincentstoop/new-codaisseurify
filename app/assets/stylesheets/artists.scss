@@ -23,7 +23,6 @@ ul.artists {
       font-size: 20px;
     }
   }
-
 }
 a {
   text-decoration: none;
@@ -35,4 +34,101 @@ a {
   &:active {
     color: #333;
   }
+}
+
+.artist {
+  display:flex;
+  flex-direction: row-reverse;
+  .artist-info {
+    img {
+      max-width: 50%;
+      margin: 10px 10px 10px 0;
+    }
+    display: flex;
+    // flex-wrap: nowrap;
+    flex-direction: row;
+    p {
+      font-size: 17px;
+      line-height: 1.2;
+      padding: 5px;
+      padding-top: 0;
+      color: #666;
+    }
+  }
+  div:last-child {
+    margin-right: 10px;
+    padding: 10px;
+    min-width:100px;
+    a {
+      margin-bottom:10px;
+    }
+  }
+}
+table {
+  width: 100%;
+  thead {
+    text-align: left;
+    th:last-child {
+      text-align: center;
+    }
+  }
+  tbody tr td:last-child {
+    max-width: 50px;
+  }
+  input[type="submit"] {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    border-radius: 7px;
+    color: white;
+    background-color: green;
+    border: none;
+    line-height: 1.2;
+    height:auto;
+    transition: background-color 300ms;
+    &:hover {
+      background-color: lighten(green, 10%);
+    }
+  }
+  th,
+  td {
+    padding: 3px;
+    margin: 5px;
+  }
+  tr {
+    padding: 5em;
+  }
+}
+
+
+.destroy,
+#delete_all_songs,
+#delete_artist {
+  display: block;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 7px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 300ms, color 300ms;
+  &:hover {
+    background-color: darken(rgb(255,0,0), 20%);
+    color: darken(white, 10%);
+  }
+}
+.destroy {
+  max-width: 68px;
+  line-height: 1.2;
+}
+
+.destroy,
+#delete_all_songs {
+}
+
+.back-link {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
 }

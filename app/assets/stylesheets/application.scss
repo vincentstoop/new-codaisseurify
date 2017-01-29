@@ -17,6 +17,11 @@
 @import "artists";
 @import "songs";
 
+body {
+  background-color: #eee;
+  color: #666;
+}
+
 .container {
   width: 960px;
   margin: 0 auto;
