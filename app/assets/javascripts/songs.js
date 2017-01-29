@@ -61,8 +61,7 @@ function createSong(title, year) {
       .html(year);
 
     var deleteText = $('<td></td>')
-      .attr('class', 'destroy')
-      .html('"Delete song"');
+      .html('First refresh this page to delete this song.');
 
     var tableRow = $('<tr data-song></tr>')
       .append(titleCol)

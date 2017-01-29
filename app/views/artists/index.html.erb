@@ -1,7 +1,10 @@
 <div class="container">
-  <h1>Artist in the Database</h1>
+  <h1>Artists in the Database</h1>
 
   <% if !@artists.nil? %>
+  <p class="col-md-12">Sort by:
+  <%= link_to "Name", root_path(sort: @next_sort_name) %>
+  <%= link_to "Creation date", root_path(sort: @next_sort_created_at) %></p>
   <ul>
     <% @artists.each do |artist| %>
       <li>
