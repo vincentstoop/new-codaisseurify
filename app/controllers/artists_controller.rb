@@ -26,7 +26,7 @@ class ArtistsController < ApplicationController
     end
     # redirect_to artist_path, notice: "All songs by #{@artist.name} deleted."
     render status: 200, json: {
-      message: "All songs by #{@artist.name} deleted."
-    }
+      message: "All songs by #{@artist.name} deleted.",
+    }.to_json
   end
 end
