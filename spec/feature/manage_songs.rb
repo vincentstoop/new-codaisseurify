@@ -10,7 +10,6 @@ feature 'Manage songs', js: true do
 
     fill_in 'input_title', with: 'Just a song'
     fill_in 'input_year', with: '1993'
-    sleep(5)
 
     page.execute_script("$('form').submit()")
 
